@@ -1,0 +1,79 @@
+{
+  "data": [
+    {
+      "name": "Offers near you!",
+      "restaurants": [
+        {
+          "id": 1,
+          "image": "https://upload.wikimedia.org/wikipedia/commons/6/6d/Good_Food_Display_-_NCI_Visuals_Online.jpg",
+          "name": "Nando",
+          "title": "Yo! Sushi",
+          "rating": 4.5,
+          "type": { "name": "Japanese" },
+          "address": "123 Main St",
+          "shortDescription": "this is test description",
+          "dishes": [],
+          "long": 20,
+          "lat": 0
+        }
+      ],
+      "shortDescription": "Why not support your local restaurant tonight",
+      "_createdAt": "2022-12-2",
+      "_id": 1,
+      "_rev": "agsagsagsag",
+      "_type": "featured",
+      "_updatedAt": "2022-12-2"
+    },
+    {
+      "name": "Featured",
+      "restaurants": [],
+      "shortDescription": "Paid placements from our partners",
+      "_createdAt": "2022-12-2",
+      "_id": 2,
+      "_rev": "agsagsagsag",
+      "_type": "featured",
+      "_updatedAt": "2022-12-2"
+    },
+    {
+      "name": "Tasty Discount",
+      "restaurants": [],
+      "shortDescription": "this is test description",
+      "_createdAt": "2022-12-2",
+      "_id": 3,
+      "_rev": "agsagsagsag",
+      "_type": "featured",
+      "_updatedAt": "2022-12-2"
+    }
+  ],
+  "category": [
+    {
+      "id": 1,
+      "image": "https://upload.wikimedia.org/wikipedia/commons/6/6d/Good_Food_Display_-_NCI_Visuals_Online.jpg",
+      "name": "Asian"
+    },
+    {
+      "id": 2,
+      "image": "https://upload.wikimedia.org/wikipedia/commons/6/6d/Good_Food_Display_-_NCI_Visuals_Online.jpg",
+      "name": "African"
+    },
+    {
+      "id": 3,
+      "image": "https://upload.wikimedia.org/wikipedia/commons/6/6d/Good_Food_Display_-_NCI_Visuals_Online.jpg",
+      "name": "American"
+    },
+    {
+      "id": 4,
+      "image": "https://upload.wikimedia.org/wikipedia/commons/6/6d/Good_Food_Display_-_NCI_Visuals_Online.jpg",
+      "name": "European"
+    },
+    {
+      "id": 5,
+      "image": "https://upload.wikimedia.org/wikipedia/commons/6/6d/Good_Food_Display_-_NCI_Visuals_Online.jpg",
+      "name": "Latin"
+    },{
+      "id": 6,
+      "image": "https://upload.wikimedia.org/wikipedia/commons/6/6d/Good_Food_Display_-_NCI_Visuals_Online.jpg",
+      "name": "Persian"
+    }
+  ]
+}

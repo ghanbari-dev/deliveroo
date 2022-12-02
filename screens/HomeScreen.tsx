@@ -6,7 +6,7 @@ import {
   TextInput,
   ScrollView,
 } from "react-native";
-import React, { useLayoutEffect } from "react";
+import React, { useEffect, useLayoutEffect, useState } from "react";
 import { useNavigation } from "@react-navigation/native";
 import {
   AdjustmentsVerticalIcon,
@@ -15,13 +15,27 @@ import {
   UserIcon,
 } from "react-native-heroicons/outline";
 import Categories from "../components/Categories";
+import FeaturedRow from "../components/FeaturedRow";
+
+import data from "../Data.json";
+import { featuredBackendType } from "../types/featuredType";
+
 const HomeScreen = () => {
   const navigation = useNavigation();
+  const [featuredCategoties, setFeaturedCategoties] = useState<featuredBackendType[]>([]);
 
   useLayoutEffect(() => {
     navigation.setOptions({
       headerShown: false,
     });
+  }, []);
+
+  useEffect(() => {
+    /* 
+      fetch data from backend 
+      type is any but will change
+    */
+    setFeaturedCategoties(data.data);
   }, []);
 
   const img = require("../assets/img/android-chrome-512x512.png");
@@ -61,6 +75,18 @@ const HomeScreen = () => {
       <ScrollView className="bg-gray-100">
         {/* categories */}
         <Categories />
+
+        {/* Featured Rows */}
+
+        {featuredCategoties?.map((category: featuredBackendType) => (
+          <FeaturedRow
+            key={category._id}
+            id={category._id}
+            title={category.name}
+            description={category.shortDescription}
+            restaurants={category.restaurants}
+          />
+        ))}
       </ScrollView>
     </SafeAreaView>
   );

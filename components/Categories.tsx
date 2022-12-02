@@ -1,8 +1,16 @@
 import { View, Text, ScrollView } from "react-native";
-import React from "react";
+import React, { useEffect, useState } from "react";
 import CategoryCard from "./CategoryCard";
 
+import data from "../Data.json";
+import { categoryBackendType } from "../types/categoryType";
+
 const Categories = () => {
+  const [categories, setCategories] = useState<categoryBackendType[]>([]);
+  useEffect(() => {
+    setCategories(data.category);
+  }, []);
+
   return (
     <ScrollView
       contentContainerStyle={{
@@ -12,30 +20,13 @@ const Categories = () => {
       horizontal
       showsHorizontalScrollIndicator={false}
     >
-      <CategoryCard
-        imgUrl="https://upload.wikimedia.org/wikipedia/commons/6/6d/Good_Food_Display_-_NCI_Visuals_Online.jpg"
-        title="test 1"
-      />
-      <CategoryCard
-        imgUrl="https://upload.wikimedia.org/wikipedia/commons/6/6d/Good_Food_Display_-_NCI_Visuals_Online.jpg"
-        title="test 2"
-      />
-      <CategoryCard
-        imgUrl="https://upload.wikimedia.org/wikipedia/commons/6/6d/Good_Food_Display_-_NCI_Visuals_Online.jpg"
-        title="test 2"
-      />
-      <CategoryCard
-        imgUrl="https://upload.wikimedia.org/wikipedia/commons/6/6d/Good_Food_Display_-_NCI_Visuals_Online.jpg"
-        title="test 2"
-      />
-      <CategoryCard
-        imgUrl="https://upload.wikimedia.org/wikipedia/commons/6/6d/Good_Food_Display_-_NCI_Visuals_Online.jpg"
-        title="test 2"
-      />
-      <CategoryCard
-        imgUrl="https://upload.wikimedia.org/wikipedia/commons/6/6d/Good_Food_Display_-_NCI_Visuals_Online.jpg"
-        title="test 2"
-      />
+      {categories?.map((category:categoryBackendType) => (
+        <CategoryCard
+          key={category.id}
+          imgUrl={category.image}
+          title={category.name}
+        />
+      ))}
     </ScrollView>
   );
 };
