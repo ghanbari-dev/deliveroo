@@ -12,7 +12,22 @@
           "type": { "name": "Japanese" },
           "address": "123 Main St",
           "shortDescription": "this is test description",
-          "dishes": [],
+          "dishes": [
+            {
+              "_id": 1,
+              "name": "Hot dog",
+              "shortDescription": "this is test description",
+              "price": 10,
+              "image": "https://upload.wikimedia.org/wikipedia/commons/6/6d/Good_Food_Display_-_NCI_Visuals_Online.jpg"
+            },
+            {
+              "_id": 2,
+              "name": "Hot dog2",
+              "shortDescription": "this is test description",
+              "price": 20,
+              "image": "https://upload.wikimedia.org/wikipedia/commons/6/6d/Good_Food_Display_-_NCI_Visuals_Online.jpg"
+            }
+          ],
           "long": 20,
           "lat": 0
         }
@@ -70,7 +85,8 @@
       "id": 5,
       "image": "https://upload.wikimedia.org/wikipedia/commons/6/6d/Good_Food_Display_-_NCI_Visuals_Online.jpg",
       "name": "Latin"
-    },{
+    },
+    {
       "id": 6,
       "image": "https://upload.wikimedia.org/wikipedia/commons/6/6d/Good_Food_Display_-_NCI_Visuals_Online.jpg",
       "name": "Persian"

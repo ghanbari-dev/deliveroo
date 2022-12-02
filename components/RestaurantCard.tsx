@@ -3,7 +3,8 @@ import React from "react";
 import { StarIcon } from "react-native-heroicons/solid";
 import { MapPinIcon } from "react-native-heroicons/outline";
 import { restaurantType } from "../types/restaurantType";
-
+import { useNavigation } from "@react-navigation/native";
+import { RestaurantScreenNavigationProp } from "../types/navigation";
 
 const RestaurantCard = ({
   address,
@@ -17,8 +18,25 @@ const RestaurantCard = ({
   shortDescription,
   title,
 }: restaurantType) => {
+  const navigation = useNavigation<RestaurantScreenNavigationProp>();
   return (
-    <TouchableOpacity className="bg-white mr-3 ">
+    <TouchableOpacity
+      onPress={() => {
+        navigation.navigate("Restaurant", {
+          address,
+          dishes,
+          genre,
+          id,
+          imgUrl,
+          lat,
+          long,
+          rating,
+          shortDescription,
+          title,
+        });
+      }}
+      className="bg-white mr-3 "
+    >
       <Image source={{ uri: imgUrl }} className="h-36 w-64 rounded-sm" />
       <View className="px-3 pb-4">
         <Text className="font-bold text-lg pt-2">{title}</Text>
@@ -30,8 +48,8 @@ const RestaurantCard = ({
         </View>
 
         <View className="flex-row items-center space-x-1">
-            <MapPinIcon color="gray" opacity={0.4} size={22}/>
-            <Text className="text-xs text-gray-500">Nearby . {address}</Text>
+          <MapPinIcon color="gray" opacity={0.4} size={22} />
+          <Text className="text-xs text-gray-500">Nearby . {address}</Text>
         </View>
       </View>
     </TouchableOpacity>
