@@ -2,9 +2,32 @@ import { View, Text, TouchableOpacity, Image } from "react-native";
 import React, { useState } from "react";
 import { dishType } from "../types/dishType";
 import { MinusCircleIcon, PlusCircleIcon } from "react-native-heroicons/solid";
+import { useDispatch, useSelector } from "react-redux";
+import {
+  addToBasket,
+  removeFromBasket,
+  selectBasketItems,
+} from "../redux/basketSlice";
+import { RootState } from "../redux/store";
 
 const DishRow = ({ id, name, image, description, price }: dishType) => {
   const [isPressed, setIsPressed] = useState(false);
+  const items = useSelector(selectBasketItems);
+  const thisItem = items.filter((item) => item.id === id);
+  let item = thisItem[0];
+  if (thisItem.length === 0) {
+    item = { id, name, image, description, price, count: 0 };
+  }
+
+  const dispatch = useDispatch();
+
+  const addItemToBasket = () => {
+    dispatch(addToBasket({ ...item }));
+  };
+
+  const removeItemFromBasket = () => {
+    dispatch(removeFromBasket({ ...item }));
+  };
 
   return (
     <>
@@ -33,17 +56,19 @@ const DishRow = ({ id, name, image, description, price }: dishType) => {
       {isPressed && (
         <View className="bg-white px-4">
           <View className="flex-row items-center space-x-2 pb-3">
-            <TouchableOpacity>
+            <TouchableOpacity
+              disabled={item.count <= 0}
+              onPress={removeItemFromBasket}
+            >
               <MinusCircleIcon
-                //color={items.length > 0 ? "#0cb" : "gray"}
-                color="#0cb"
+                color={item.count > 0 ? "#0cb" : "gray"}
                 size={40}
               />
             </TouchableOpacity>
 
-            <Text>0</Text>
+            <Text>{item.count}</Text>
 
-            <TouchableOpacity>
+            <TouchableOpacity onPress={addItemToBasket}>
               <PlusCircleIcon
                 //color={items.length > 0 ? "#0cb" : "gray"}
                 color="#0cb"
