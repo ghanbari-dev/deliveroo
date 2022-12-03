@@ -5,10 +5,19 @@ import { restaurantType } from "./restaurantType";
 export type RootStackParamList = {
   Home: undefined;
   Restaurant: restaurantType;
+  Basket: undefined;
 };
 
 export type RestaurantScreenNavigationProp = NativeStackNavigationProp<
   RootStackParamList,
   "Restaurant"
 >;
-export type RestaurantScreenRouteProp = RouteProp<RootStackParamList, "Restaurant">;
+export type RestaurantScreenRouteProp = RouteProp<
+  RootStackParamList,
+  "Restaurant"
+>;
+
+export type BasketScreenNavigationProp = NativeStackNavigationProp<
+  RootStackParamList,
+  "Basket"
+>;

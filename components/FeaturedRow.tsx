@@ -6,6 +6,9 @@ import { restaurantBackendType } from "../types/restaurantType";
 import { featuredType } from "../types/featuredType";
 
 const FeaturedRow = ({ id, title, description, restaurants }: featuredType) => {
+  
+  //TODO: can fetch data again useEffect(()=>{},[id])
+
   return (
     <View>
       <View className="mt-4 flex-row items-center justify-between px-4">
