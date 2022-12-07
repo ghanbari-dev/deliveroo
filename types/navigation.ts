@@ -6,6 +6,8 @@ export type RootStackParamList = {
   Home: undefined;
   Restaurant: restaurantType;
   Basket: undefined;
+  PreparingOrder: undefined;
+  Delivery:undefined;
 };
 
 export type RestaurantScreenNavigationProp = NativeStackNavigationProp<
@@ -20,4 +22,14 @@ export type RestaurantScreenRouteProp = RouteProp<
 export type BasketScreenNavigationProp = NativeStackNavigationProp<
   RootStackParamList,
   "Basket"
+>;
+
+export type PreparingOrderScreenNavigationProp = NativeStackNavigationProp<
+  RootStackParamList,
+  "PreparingOrder"
+>;
+
+export type DeliveryScreenNavigationProp = NativeStackNavigationProp<
+  RootStackParamList,
+  "Delivery"
 >;

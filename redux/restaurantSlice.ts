@@ -1,5 +1,6 @@
 import { createSlice, PayloadAction } from "@reduxjs/toolkit";
-import { restaurantItemType, restaurantStateType } from "../types/redux";
+import { restaurantStateType } from "../types/redux";
+import { restaurantType } from "../types/restaurantType";
 import { RootState } from "./store";
 
 const initialState: restaurantStateType = {
@@ -12,6 +13,8 @@ const initialState: restaurantStateType = {
     address: "",
     shortDescription: "",
     dishes: [],
+    lat: 0,
+    long: 0,
   },
 };
 
@@ -19,7 +22,7 @@ export const restaurantSlice = createSlice({
   name: "restaurant",
   initialState,
   reducers: {
-    setRestaurant: (state, action: PayloadAction<restaurantItemType>) => {
+    setRestaurant: (state, action: PayloadAction<restaurantType>) => {
       state.restaurant = action.payload;
     },
   },

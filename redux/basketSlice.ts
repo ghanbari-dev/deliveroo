@@ -26,7 +26,7 @@ export const basketSlice = createSlice({
         state.totalCount++;
       }
     },
-    removeFromBasket: (state, action) => {
+    removeFromBasket: (state, action: PayloadAction<itemType>) => {
       const selectedItem = state.items?.filter(
         (item) => item.id == action.payload.id
       );

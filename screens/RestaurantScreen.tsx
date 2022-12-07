@@ -50,6 +50,8 @@ const RestaurantScreen = () => {
         rating,
         shortDescription,
         title,
+        lat,
+        long,
       })
     );
   }, []);

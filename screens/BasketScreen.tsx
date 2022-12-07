@@ -16,9 +16,10 @@ import {
   selectTotalPrice,
 } from "../redux/basketSlice";
 import { XCircleIcon } from "react-native-heroicons/solid";
+import { BasketScreenNavigationProp } from "../types/navigation";
 
 const BasketScreen = () => {
-  const navigation = useNavigation();
+  const navigation = useNavigation<BasketScreenNavigationProp>();
   const restaurant = useSelector(selectRestaurant);
   const items = useSelector(selectBasketItems);
   const totalPrice = useSelector(selectTotalPrice);
@@ -69,7 +70,7 @@ const BasketScreen = () => {
               <Text className="text-gray-600">$ {item.price}</Text>
 
               <TouchableOpacity
-                onPress={() => dispatch(removeFromBasket({ id: item.id }))}
+                onPress={() => dispatch(removeFromBasket({ ...item}))}
               >
                 <Text className="text-[#0CB] text-xs">Remove</Text>
               </TouchableOpacity>
@@ -93,8 +94,13 @@ const BasketScreen = () => {
             <Text className="font-extrabold">$ {totalPrice + 5}</Text>
           </View>
 
-          <TouchableOpacity className="rounded-lg bg-[#0CB] p-4">
-            <Text className="text-center text-white text-lg font-bold">Place Order</Text>
+          <TouchableOpacity
+            onPress={() => navigation.navigate("PreparingOrder")}
+            className="rounded-lg bg-[#0CB] p-4"
+          >
+            <Text className="text-center text-white text-lg font-bold">
+              Place Order
+            </Text>
           </TouchableOpacity>
         </View>
       </View>

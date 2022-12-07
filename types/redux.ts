@@ -10,9 +10,6 @@ export interface basketStateType {
   totalPrice: number;
   totalCount: number;
 }
-
-export type restaurantItemType = Omit<restaurantType ,"lat" | "long">;
-
 export interface restaurantStateType {
-  restaurant: restaurantItemType;
+  restaurant: restaurantType;
 }
